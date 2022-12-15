@@ -1,8 +1,11 @@
 import express from "express";
-
-const app = express();
+import {} from "dotenv/config";
 
 import productRoutes from "./routes/products.js";
+import connectDB from "./db/conn.js";
+const app = express();
+connectDB();
+app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 app.get("/", (req, res) => {
